@@ -1,11 +1,16 @@
 void main()
 {
+  List <int> scores = [50, 70, 80, 90, 100];
+
   for (int i = 0; i < 5; i++)
   {
-<<<<<<< HEAD
-    print("hello, world $i");  
-=======
     print("hello kompadre $i");  
->>>>>>> sideBranch
   }
+
+  for (int score in scores.where((x) => x > 50))
+  {
+    print(score);
+  }
+
+  
 }
