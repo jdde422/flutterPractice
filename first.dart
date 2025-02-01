@@ -10,10 +10,10 @@ void main ()
   //  print(foo);
   //  print(bar);
 
-  print(greet("Jd", 21));
+  print(greet(age: 21));
 }
 
-String greet(String name, int age)
+String greet({String? name, required int age})
 {
   return "hi! my name is $name and i am $age years old";
 }
