@@ -7,7 +7,7 @@ void main()
     print("hello kompadre $i");  
   }
 
-  for (int score in scores.where((x) => x > 50))
+  for (int score in scores.where((x) {return x > 50;}))
   {
     print(score);
   }
