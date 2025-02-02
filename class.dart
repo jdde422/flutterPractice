@@ -1,9 +1,14 @@
 void main ()
 {
   menuItem noodles = menuItem("noodles", 75.25);
-  Pizza greenwich = Pizza(["pineapple", "spam"], "noodles", 75.25);
+  Pizza greenwich = Pizza(["pineapple", "spam"], "pizzas", 75.25);
   print(noodles.format());
   print(greenwich.format());
+
+  var foods = Collection<menuItem>('Menu items', [noodles, greenwich]);
+
+  var random = foods.randomItem();
+  print(random);
 }
 
 class menuItem
@@ -16,6 +21,12 @@ class menuItem
   String format()
   {
     return "title: ${this.title}, price: ${this.price}";
+  }
+
+  @override
+  String toString()
+  {
+    return format();
   }
 }
 
@@ -31,4 +42,18 @@ class Pizza extends menuItem
     return "title: ${this.title}, price: ${this.price}, toppings: ${this.toppings}";
   }
   
+}
+
+class Collection<T>
+{
+  String name;
+  List<T> data;
+
+  Collection(this.name, this.data);
+
+  T randomItem()
+  {
+    data.shuffle();
+    return data[0];
+  }
 }
